@@ -19,7 +19,6 @@ public class AllItemsListener implements  AdapterView.OnItemClickListener {
 
     public AllItemsListener(Context context){
         this.setContext(context);
-
     }
 
     @Override

@@ -19,8 +19,6 @@ public class Summoner {
     private int wins;
     private ArrayList<SummonerRanked> summonerRankeds = new ArrayList<>();
 
-
-
     public ArrayList<SummonerRanked> getSummonerRankeds() {
         return summonerRankeds;
     }
@@ -33,7 +31,6 @@ public class Summoner {
         String url = "http://ddragon.leagueoflegends.com/cdn/5.12.1/img/profileicon/"+ profileIconId +".png" ;
         new ImageDownloader(image).execute(url);
     }
-
 
     public String getRegion() {
         return region;

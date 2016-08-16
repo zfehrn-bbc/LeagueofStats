@@ -16,27 +16,17 @@ import ch.berufsbildungscenter.leagueofstats.AllItemsActivity;
 public class MainActivityButtonListener implements View.OnClickListener {
 
     private Context context;
+    private Class intentClass;
 
-    public MainActivityButtonListener(Context context){
+    public MainActivityButtonListener(Context context, Class intentClass) {
         this.setContext(context);
+        this.intentClass = intentClass;
     }
 
     @Override
     public void onClick(View v) {
-
-        if(v.getId() == R.id.free_to_play_btn){
-            Intent intent = new Intent(context, FreeToPlayChampionsActivity.class);
-            context.startActivity(intent);
-        } else if(v.getId() == R.id.champions_btn) {
-            Intent intent = new Intent(context, AllChampionsActivity.class);
-            context.startActivity(intent);
-        } else if(v.getId() == R.id.items_btn) {
-            Intent intent = new Intent(context, AllItemsActivity.class);
-            context.startActivity(intent);
-        }else if(v.getId() == R.id.favoritSummoners_btn) {
-            Intent intent = new Intent(context, FavoritSummonerActivity.class);
-            context.startActivity(intent);
-        }
+        Intent intent = new Intent(context, intentClass);
+        context.startActivity(intent);
     }
 
     public Context getContext() {
