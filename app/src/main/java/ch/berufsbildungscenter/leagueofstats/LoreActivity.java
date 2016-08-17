@@ -1,10 +1,10 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +15,7 @@ import android.widget.TextView;
 import ch.berufsbildungscenter.leagueofstats.listener.LoreListener;
 
 
-public class LoreActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class LoreActivity extends Activity implements ActionBar.TabListener {
 
     private boolean allyTipsVisible = false;
     private boolean enemyTipsVisible = false;
@@ -26,7 +26,7 @@ public class LoreActivity extends ActionBarActivity implements ActionBar.TabList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lore);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         // changes color of action bar:
@@ -84,17 +84,6 @@ public class LoreActivity extends ActionBarActivity implements ActionBar.TabList
     }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        if(tab.getPosition() == 0) {
-
-        }
-        else if(tab.getPosition() == 1) {
-            this.finish();
-            Log.v("TAB 1", "Selected");
-        }
-    }
-
-    @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
@@ -126,5 +115,16 @@ public class LoreActivity extends ActionBarActivity implements ActionBar.TabList
 
     public void setLoreVisible(boolean loreVisible) {
         this.loreVisible = loreVisible;
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        if(tab.getPosition() == 0) {
+
+        }
+        else if(tab.getPosition() == 1) {
+            this.finish();
+            Log.v("TAB 1", "Selected");
+        }
     }
 }

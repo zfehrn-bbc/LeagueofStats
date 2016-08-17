@@ -1,7 +1,7 @@
 package ch.berufsbildungscenter.leagueofstats;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import ch.berufsbildungscenter.leagueofstats.listener.FindSummonerActivityButtonListener;
 
 
-public class FindSummonerActivity extends ActionBarActivity {
+public class FindSummonerActivity extends Activity {
 
 
     private String regionSelected;
@@ -26,7 +26,7 @@ public class FindSummonerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_summoner);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         EditText summonerTextField = (EditText)findViewById(R.id.findSummonerTextField);

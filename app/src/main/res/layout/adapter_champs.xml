@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/all_champs_item">
 
     <ch.berufsbildungscenter.leagueofstats.custom.StartButtonView
-        android:id="@+id/main_item"
+        android:id="@+id/champ_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitCenter"
-        android:background="@drawable/champ_button_bg" />
+        android:background="@drawable/champ_button_bg"
+        android:scaleType="fitCenter" />
 
     <TextView
-        android:id="@+id/main_name"
+        android:id="@+id/champ_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

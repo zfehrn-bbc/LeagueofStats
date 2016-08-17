@@ -6,10 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
+import ch.berufsbildungscenter.leagueofstats.custom.StartButtonView;
 import ch.berufsbildungscenter.leagueofstats.listener.AllChampionsListener;
 import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 
@@ -29,17 +31,15 @@ public class AllChampsAdapter extends ArrayAdapter<ChampionData> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.adapter_all_champs, parent, false);
+        View rowView = inflater.inflate(R.layout.adapter_champs, parent, false);
 
         ChampionData championData = this.getItem(position);
 
-        ImageButton championIcon = (ImageButton) rowView.findViewById(R.id.championIcon);
-
+        StartButtonView championIcon = (StartButtonView) rowView.findViewById(R.id.champ_img);
         championData.getChampionIconImageButton(championIcon);
-
         championIcon.setOnClickListener(new AllChampionsListener(context, championData));
 
-        TextView name = (TextView) rowView.findViewById(R.id.nameField);
+        TextView name = (TextView) rowView.findViewById(R.id.champ_name);
         name.setText(championData.getName());
         return rowView;
     }

@@ -1,11 +1,11 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +22,7 @@ import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 import ch.berufsbildungscenter.leagueofstats.model.ChampionStat;
 
 
-public class ChampionStatsActivity extends ActionBarActivity implements ActionBar.TabListener{
+public class ChampionStatsActivity extends Activity implements ActionBar.TabListener{
 
     private URL url;
     private ProgressDialog mDialog;
@@ -35,7 +35,7 @@ public class ChampionStatsActivity extends ActionBarActivity implements ActionBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champion_stats);
 
-        actionBar = getSupportActionBar();
+        actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         // changes color of action bar:
@@ -133,6 +133,16 @@ public class ChampionStatsActivity extends ActionBarActivity implements ActionBa
     }
 
     @Override
+    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    @Override
+    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+    }
+
+    @Override
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
         if(tab.getPosition() == 0) {
             Intent intent = new Intent(this, LoreActivity.class);
@@ -150,18 +160,5 @@ public class ChampionStatsActivity extends ActionBarActivity implements ActionBa
         else if(tab.getPosition() == 1) {
             Log.v("TAB 2", "Selected");
         }
-
-
-
-    }
-
-    @Override
-    public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-    }
-
-    @Override
-    public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
-
     }
 }

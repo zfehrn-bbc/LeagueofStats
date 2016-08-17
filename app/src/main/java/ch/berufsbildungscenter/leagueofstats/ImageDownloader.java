@@ -20,7 +20,7 @@ public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
     }
 
     public ImageDownloader(ImageView imageView) {
-               this.imageView = imageView;
+        this.imageView = imageView;
     }
 
     protected Bitmap doInBackground(String... urls) {

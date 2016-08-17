@@ -1,5 +1,6 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +22,7 @@ import ch.berufsbildungscenter.leagueofstats.listener.FavoritSummonerListener;
 import ch.berufsbildungscenter.leagueofstats.model.Summoner;
 
 
-public class FavoritSummonerActivity extends ActionBarActivity {
+public class FavoritSummonerActivity extends Activity {
 
     private ProgressDialog mDialog;
     private URL url;

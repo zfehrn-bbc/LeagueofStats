@@ -1,21 +1,18 @@
 package ch.berufsbildungscenter.leagueofstats;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
 
 import ch.berufsbildungscenter.leagueofstats.custom.StartButtonView;
-import ch.berufsbildungscenter.leagueofstats.listener.AllChampionsListener;
 import ch.berufsbildungscenter.leagueofstats.listener.MainActivityButtonListener;
-import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 import ch.berufsbildungscenter.leagueofstats.model.StartButton;
 
 /**
@@ -38,8 +35,7 @@ public class MainAdapter extends ArrayAdapter<StartButton> {
         StartButton startButton = this.getItem(position);
         //
         StartButtonView relativeLayoutButton = (StartButtonView) rowView.findViewById(R.id.main_item);
-        relativeLayoutButton.setMinimumWidth(rowView.getWidth()/3);
-        relativeLayoutButton.setBackground(getContext().getDrawable(startButton.getBgPicture()));
+        relativeLayoutButton.setImageDrawable(getContext().getDrawable(startButton.getBgPicture()));
         relativeLayoutButton.setOnClickListener(new MainActivityButtonListener(context, startButton.getActivityClass()));
         //
         TextView name = (TextView) rowView.findViewById(R.id.main_name);

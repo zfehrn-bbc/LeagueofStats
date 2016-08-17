@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="primColor">#283593</color>
+    <color name="secColor">#1A237E</color>
+
+    <color name="black_overlay">#66000000</color>
+
+</resources>

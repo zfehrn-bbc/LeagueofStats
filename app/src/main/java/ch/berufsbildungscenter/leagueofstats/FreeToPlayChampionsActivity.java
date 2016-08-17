@@ -1,5 +1,6 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -15,7 +16,7 @@ import ch.berufsbildungscenter.leagueofstats.listener.FreeToPlayChampListener;
 import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 
 
-public class FreeToPlayChampionsActivity extends ActionBarActivity {
+public class FreeToPlayChampionsActivity extends Activity {
 
     private ProgressDialog mDialog;
     private URL url;

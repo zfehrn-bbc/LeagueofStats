@@ -26,7 +26,7 @@ public class ChampStatAdapter extends ArrayAdapter<ChampionStat> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.adapterchamp_stat, parent, false);
+        View rowView = inflater.inflate(R.layout.adapter_champ_stat, parent, false);
         TextView title = (TextView) rowView.findViewById(R.id.health);
         TextView stats = (TextView) rowView.findViewById(R.id.health_stat);
 

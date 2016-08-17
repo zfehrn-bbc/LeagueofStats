@@ -2,12 +2,13 @@ package ch.berufsbildungscenter.leagueofstats.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 /**
  * Created by zfehrn on 16.08.2016.
  */
-public class StartButtonView extends ImageView {
+public class StartButtonView extends ImageButton {
     public StartButtonView(Context context) {
         super(context);
     }

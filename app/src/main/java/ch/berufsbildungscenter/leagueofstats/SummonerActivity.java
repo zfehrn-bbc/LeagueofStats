@@ -1,11 +1,11 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,7 +26,7 @@ import ch.berufsbildungscenter.leagueofstats.model.Summoner;
 import ch.berufsbildungscenter.leagueofstats.model.SummonerRanked;
 
 
-public class SummonerActivity extends ActionBarActivity implements ActionBar.TabListener {
+public class SummonerActivity extends Activity implements ActionBar.TabListener {
 
     private int summonerId;
     private String region;
@@ -42,7 +42,7 @@ public class SummonerActivity extends ActionBarActivity implements ActionBar.Tab
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summoner);
 
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
@@ -169,15 +169,6 @@ public class SummonerActivity extends ActionBarActivity implements ActionBar.Tab
     }
 
     @Override
-    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-        if (tab.getPosition() == 0) {
-            Log.i(LOG_TAG, "Game History");
-        } else if (tab.getPosition() == 2) {
-            Log.i(LOG_TAG, "Stats");
-        }
-    }
-
-    @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
 
     }
@@ -187,4 +178,12 @@ public class SummonerActivity extends ActionBarActivity implements ActionBar.Tab
 
     }
 
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+        if (tab.getPosition() == 0) {
+            Log.i(LOG_TAG, "Game History");
+        } else if (tab.getPosition() == 2) {
+            Log.i(LOG_TAG, "Stats");
+        }
+    }
 }

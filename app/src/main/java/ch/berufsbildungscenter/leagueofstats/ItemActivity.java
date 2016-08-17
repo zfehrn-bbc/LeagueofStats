@@ -1,5 +1,6 @@
 package ch.berufsbildungscenter.leagueofstats;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -15,7 +16,7 @@ import ch.berufsbildungscenter.leagueofstats.json.SummonerIDLoader;
 import ch.berufsbildungscenter.leagueofstats.model.Item;
 
 
-public class ItemActivity extends ActionBarActivity {
+public class ItemActivity extends Activity {
 
     private ProgressDialog mDialog;
 
