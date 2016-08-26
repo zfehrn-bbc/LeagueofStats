@@ -25,7 +25,6 @@ public abstract class JsonLoadingTask extends AsyncTask<String, Void, String> {
     protected JSONParser jsonParser;
     protected ProgressDialog mDialog;
 
-
     private static final String LOG_TAG = JsonLoadingTask.class.getCanonicalName();
 
     private ConnectivityManager connectivityManager;

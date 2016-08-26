@@ -10,8 +10,10 @@ import android.widget.GridView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 import ch.berufsbildungscenter.leagueofstats.model.StartButton;
 
 public class MainActivity extends Activity {
@@ -31,9 +33,15 @@ public class MainActivity extends Activity {
         startButtons.add(new StartButton(
                 getString(R.string.favoritSummoners_btn), R.drawable.spell4, FavoritSummonerActivity.class));
 
+        List<ChampionData> championDataList = Arrays.asList((ChampionData[]) this.getIntent().getParcelableArrayExtra("startChamps"));
+
         MainAdapter mainAdapter = new MainAdapter(this, R.id.main_item, startButtons);
-        GridView mainListView = (GridView) findViewById(R.id.main_grid);
-        mainListView.setAdapter(mainAdapter);
+        GridView mainGridView = (GridView) findViewById(R.id.main_grid);
+        mainGridView.setAdapter(mainAdapter);
+
+        AllChampsAdapter aca = new AllChampsAdapter(this, R.id.all_champs_item, championDataList);
+        GridView ftpChampsGridView = (GridView) findViewById(R.id.ftp_champions_grid);
+        ftpChampsGridView.setAdapter(aca);
     }
 
     @Override

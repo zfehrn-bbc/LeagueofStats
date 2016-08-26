@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import java.io.InputStream;
 
 public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+
     private ImageButton bmImage;
     private ImageView imageView;
 
@@ -41,8 +42,8 @@ public class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
         }
 
         if(bmImage != null) {
-            bmImage.setScaleX(2f);
-            bmImage.setScaleY(2f);
+            //bmImage.setScaleX(2f);
+            //bmImage.setScaleY(2f);
 
             bmImage.setImageBitmap(result);
         }

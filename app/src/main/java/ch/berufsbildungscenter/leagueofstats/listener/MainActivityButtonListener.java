@@ -2,18 +2,8 @@ package ch.berufsbildungscenter.leagueofstats.listener;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
-import java.util.logging.Logger;
-
-import ch.berufsbildungscenter.leagueofstats.AllChampionsActivity;
-import ch.berufsbildungscenter.leagueofstats.FavoritSummonerActivity;
-import ch.berufsbildungscenter.leagueofstats.FreeToPlayChampionsActivity;
-import ch.berufsbildungscenter.leagueofstats.MainActivity;
-import ch.berufsbildungscenter.leagueofstats.R;
-import ch.berufsbildungscenter.leagueofstats.AllItemsActivity;
 
 /**
  * Created by zpengc on 17.06.2015.

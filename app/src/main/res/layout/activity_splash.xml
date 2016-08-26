@@ -33,7 +33,7 @@
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/progressBar"
+        android:id="@+id/splashProgressBar"
         android:layout_below="@+id/textView2"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true" />

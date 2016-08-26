@@ -1,5 +1,7 @@
 package ch.berufsbildungscenter.leagueofstats.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -11,7 +13,7 @@ import ch.berufsbildungscenter.leagueofstats.ImageDownloader;
 /**
  * Created by zkillt on 18.06.2015.
  */
-public class ChampionData {
+public class ChampionData implements Parcelable {
 
     private ArrayList<ChampionStat> championStats = new ArrayList<ChampionStat>();
 
@@ -45,6 +47,7 @@ public class ChampionData {
     private double armor;
     private double armorPerLevel;
     private double magicResistance;
+    private double magicResistancePerLevel;
 
     private String allyTips;
     private String enemyTips;
@@ -55,6 +58,7 @@ public class ChampionData {
         String url = "http://ddragon.leagueoflegends.com/cdn/5.12.1/img/champion/" + this.image;
         new ImageDownloader(image).execute(url);
     }
+
     public void getChampionIconImageView(ImageView image) {
         Log.e("Image", "Image: " + this.image);
         String url = "http://ddragon.leagueoflegends.com/cdn/5.12.1/img/champion/" + this.image;
@@ -174,8 +178,6 @@ public class ChampionData {
         this.magicResistancePerLevel = magicResistancePerLevel;
     }
 
-    private double magicResistancePerLevel;
-
     public String getImage() {
         return image;
     }
@@ -270,6 +272,100 @@ public class ChampionData {
 
     public void setLore(String lore) {
         this.lore = lore;
+    }
+
+    public ChampionData() {
+    }
+
+    /*Parcelable part*/
+    public ChampionData(Parcel pc) {
+        this.championStats = pc.readArrayList(ClassLoader.getSystemClassLoader());
+
+        this.title = pc.readString();
+        this.image = pc.readString();
+        this.id = pc.readInt();
+        this.name = pc.readString();
+
+        this.attack = pc.readInt();
+        this.defense = pc.readInt();
+        this.difficulty = pc.readInt();
+        this.magic = pc.readInt();
+
+        this.mana = pc.readDouble();
+        this.manaPerLevel = pc.readDouble();
+
+        this.attackrange = pc.readDouble();
+        this.attackDamage = pc.readDouble();
+        this.attackDamagePerLevel = pc.readDouble();
+        this.attackSpeedPerLevel = pc.readDouble();
+        this.attackSpeedOffset = pc.readDouble();
+
+        this.hp = pc.readDouble();
+        this.hpPerLevel = pc.readDouble();
+
+        this.movementSpeed = pc.readDouble();
+
+        this.armor = pc.readDouble();
+        this.armorPerLevel = pc.readDouble();
+        this.magicResistance = pc.readDouble();
+        this.magicResistancePerLevel = pc.readDouble();
+
+        this.allyTips = pc.readString();
+        this.enemyTips = pc.readString();
+        this.lore = pc.readString();
+    }
+
+    public static final Parcelable.Creator<ChampionData> CREATOR = new Parcelable.Creator<ChampionData>() {
+        public ChampionData createFromParcel(Parcel pc) {
+            return new ChampionData(pc);
+        }
+
+        public ChampionData[] newArray(int size) {
+            return new ChampionData[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(championStats);
+
+        dest.writeString(title);
+        dest.writeString(name);
+        dest.writeInt(id);
+        dest.writeString(image);
+
+        dest.writeInt(attack);
+        dest.writeInt(magic);
+        dest.writeInt(defense);
+        dest.writeInt(difficulty);
+
+        dest.writeDouble(mana);
+        dest.writeDouble(manaPerLevel);
+
+        dest.writeDouble(attackrange);
+        dest.writeDouble(attackDamage);
+        dest.writeDouble(attackDamagePerLevel);
+        dest.writeDouble(attackSpeedPerLevel);
+        dest.writeDouble(attackSpeedOffset);
+
+        dest.writeDouble(hp);
+        dest.writeDouble(hpPerLevel);
+
+        dest.writeDouble(movementSpeed);
+
+        dest.writeDouble(armor);
+        dest.writeDouble(armorPerLevel);
+        dest.writeDouble(magicResistance);
+        dest.writeDouble(magicResistancePerLevel);
+
+        dest.writeString(allyTips);
+        dest.writeString(enemyTips);
+        dest.writeString(lore);
     }
 }
 

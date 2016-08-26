@@ -7,35 +7,29 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-import ch.berufsbildungscenter.leagueofstats.FreeToPlayChampionsActivity;
+import ch.berufsbildungscenter.leagueofstats.SplashActivity;
 
 /**
  * Created by zpengc on 24.06.2015.
  */
 public class FreeToPlayChampionsIdLoader extends JsonLoadingTask {
 
-    FreeToPlayChampionsActivity freeToPlayChampionsActivity;
+    SplashActivity freeToPlayChampionsActivity;
 
     public FreeToPlayChampionsIdLoader(Activity activity, ProgressDialog mDialog) {
         super(activity, mDialog);
-        freeToPlayChampionsActivity = (FreeToPlayChampionsActivity) activity;
+        freeToPlayChampionsActivity = (SplashActivity) activity;
     }
 
     @Override
     protected void onCostumPostExecute(String jsonString) {
         ArrayList<Integer> freeToPlayChampions = jsonParser.getFreeToPlayChampionsId(jsonString);
 
-
         for(int championId : freeToPlayChampions){
             URL url = null;
-
             FreeToPlayChampionsByIdLoader freeToPlayChampionsByIdLoader = new FreeToPlayChampionsByIdLoader(activity, mDialog);
             freeToPlayChampionsByIdLoader.execute(""+championId);
         }
-
-
-
-
     }
 
     @Override

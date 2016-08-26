@@ -6,7 +6,7 @@ import android.app.ProgressDialog;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import ch.berufsbildungscenter.leagueofstats.FreeToPlayChampionsActivity;
+import ch.berufsbildungscenter.leagueofstats.SplashActivity;
 import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
 
 /**
@@ -14,11 +14,11 @@ import ch.berufsbildungscenter.leagueofstats.model.ChampionData;
  */
 public class FreeToPlayChampionsByIdLoader extends JsonLoadingTask{
 
-    private FreeToPlayChampionsActivity freeToPlayChampionsActivity;
+    private SplashActivity freeToPlayChampionsActivity;
 
     public FreeToPlayChampionsByIdLoader(Activity activity, ProgressDialog mDialog) {
         super(activity, mDialog);
-        freeToPlayChampionsActivity = (FreeToPlayChampionsActivity) activity;
+        freeToPlayChampionsActivity = (SplashActivity) activity;
     }
 
     @Override
@@ -26,7 +26,6 @@ public class FreeToPlayChampionsByIdLoader extends JsonLoadingTask{
         ChampionData championData = jsonParser.getFreeToPlayChampionById(jsonString);
         freeToPlayChampionsActivity.addFreeToPlayChampion(championData);
         freeToPlayChampionsActivity.setData();
-
     }
 
     @Override

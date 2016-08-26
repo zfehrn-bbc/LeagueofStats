@@ -49,11 +49,6 @@
             android:parentActivityName=".FindSummonerActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".FreeToPlayChampionsActivity"
-            android:label="@string/title_activity_free_to_play_champions"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".AllItemsActivity"
             android:label="@string/title_activity_all_items"
             android:parentActivityName=".MainActivity"

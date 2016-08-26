@@ -37,6 +37,7 @@ public class AllChampsAdapter extends ArrayAdapter<ChampionData> {
 
         StartButtonView championIcon = (StartButtonView) rowView.findViewById(R.id.champ_img);
         championData.getChampionIconImageButton(championIcon);
+
         championIcon.setOnClickListener(new AllChampionsListener(context, championData));
 
         TextView name = (TextView) rowView.findViewById(R.id.champ_name);
